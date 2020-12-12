@@ -7,7 +7,6 @@
 body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
-  letter-spacing: 1.2px;
   color: #ffffff;
   background-color: #404040;
   display: flex;
@@ -27,7 +26,7 @@ body {
 }
 
 #toolbox .container {
-  width: 75px;
+  width: 80px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -43,7 +42,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 #toolbox #colors,
@@ -67,8 +66,8 @@ body {
 
 #toolbox #colors .color,
 #toolbox #shapes .shape {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: none;
   border-radius: 50%;
   margin: 0 8px 6px 8px;
@@ -82,6 +81,14 @@ body {
 
 #toolbox #shapes .square {
   border-radius: 0;
+}
+
+#toolbox #colors .color:active,
+#toolbox #shapes .shape:active,
+#toolbox #actions #delete:active,
+#toolbox #actions #download:active {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 #toolbox #brush #brush-size {
@@ -106,6 +113,33 @@ body {
 
 #artboard #paper {
   cursor: crosshair;
+}
+
+dialog {
+  width: 300px;
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 150px);
+  border: none;
+  text-align: center;
+  padding: 30px;
+  background-color: #404040;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+dialog #cancel,
+dialog #confirm {
+  border: none;
+  padding: 8px 0;
+  margin-top: 20px;
+  width: 80px;
+  cursor: pointer;
+}
+
+input,
+button {
+  outline: none;
 }
 
 input[type="range"] {
