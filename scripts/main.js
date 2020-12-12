@@ -42,7 +42,12 @@ canvas.addEventListener("mouseout", () => (isDrawing = false));
 const colorContainer = document.getElementById("colors");
 const shapeContainer = document.getElementById("shapes");
 const brushSize = document.getElementById("brush-size");
+const brushSizeLabel = document.getElementById("brush-size-value");
 const colorPicker = document.getElementById("color-picker");
+const brushPreview = document.getElementById("brush-preview");
+
+brushPreview.style.backgroundColor = ctx.strokeStyle;
+brushSizeLabel.innerHTML = brushSize.value + "px";
 
 const colors = [
   "#000000",
@@ -84,6 +89,7 @@ function getShapes(shape) {
 
 function updateBrushSize() {
   ctx.lineWidth = this.value;
+  brushSizeLabel.innerHTML = brushSize.value + "px";
 }
 
 colors.forEach(getColors);
@@ -92,11 +98,17 @@ shapes.forEach(getShapes);
 document.addEventListener("click", (e) => {
   if (!e.target.matches(".color")) return;
   ctx.strokeStyle = e.target.value;
+  brushPreview.style.backgroundColor = e.target.value;
 });
 
 document.addEventListener("click", (e) => {
   if (!e.target.matches(".shape")) return;
   ctx.lineCap = e.target.value;
+  if (ctx.lineCap === "square") {
+    brushPreview.style.borderRadius = "0";
+  } else {
+    brushPreview.style.borderRadius = "50%";
+  }
 });
 
 brushSize.addEventListener("change", updateBrushSize);

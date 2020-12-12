@@ -8,18 +8,31 @@
   </head>
   <body>
     <section id="toolbox">
-      <div id="preview"></div>
-      <div id="colors"></div>
-      <div id="custom-color">
-        <input type="color" id="color-picker" />
-      </div>
-      <div id="shapes"></div>
-      <div id="brush">
-        <input id="brush-size" type="range" min="1" max="50" value="10" />
+      <div>
+        <div id="preview" class="container">
+          <span id="brush-preview"></span>
+        </div>
+        <div id="colors" class="container">
+          <span class="name">farver</span>
+        </div>
+        <div id="custom-color" class="container">
+          <span class="name">vælg farve</span>
+          <input type="color" id="color-picker" />
+        </div>
+        <div id="shapes" class="container">
+          <span class="name">penselform</span>
+        </div>
+        <div id="brush" class="container">
+          <span class="name">størrelse</span>
+          <input id="brush-size" type="range" min="1" max="50" value="10" />
+          <label id="brush-size-value"></label>
+        </div>
       </div>
       <div>
-        <img src="images/reset.png" alt="reset canvas" />
-        <img src="images/download.png" alt="download drawing" />
+        <div id="actions" class="container">
+          <img src="images/reset.png" alt="reset canvas" />
+          <img src="images/download.png" alt="download drawing" />
+        </div>
       </div>
     </section>
     <section id="artboard">

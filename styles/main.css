@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  font-family: sans-serif;
   background-color: #404040;
   display: flex;
   justify-content: space-between;
@@ -15,7 +16,46 @@ body {
 #toolbox {
   width: 100px;
   height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #262626;
+  padding: 10px 0;
+}
+
+#toolbox .container {
+  width: 75px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#toolbox #colors,
+#toolbox #shapes,
+#toolbox #actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: unset;
+  justify-content: space-between;
+}
+
+#toolbox #preview #brush-preview {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.1s;
+}
+
+#toolbox .name {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  text-transform: capitalize;
 }
 
 #toolbox #colors .color,
@@ -24,11 +64,68 @@ body {
   height: 20px;
   border: none;
   border-radius: 50%;
-  margin: 0 8px 6px 8px;
+  margin: 0 8px 0 8px;
   cursor: pointer;
+}
+
+#toolbox #shapes .square {
+  border-radius: 0;
+}
+
+#toolbox #brush #brush-size {
+  width: 90%;
+}
+
+#toolbox #actions img {
+  width: 30px;
 }
 
 #artboard {
   width: calc(100% - 110px);
   height: 100%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #fbf5e5;
+  border: none;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid #262626;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #fbf5e5;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #fbf5e5;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 55%;
+  height: 18px;
+  cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
 }
