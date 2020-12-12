@@ -6,7 +6,9 @@
 
 body {
   height: 100vh;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.2px;
+  color: #ffffff;
   background-color: #404040;
   display: flex;
   justify-content: space-between;
@@ -33,6 +35,10 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+#toolbox .container:last-child {
+  border: none;
+}
+
 #toolbox #colors,
 #toolbox #shapes,
 #toolbox #actions {
@@ -56,6 +62,7 @@ body {
   text-align: center;
   font-size: 10px;
   text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 #toolbox #colors .color,
@@ -64,8 +71,13 @@ body {
   height: 20px;
   border: none;
   border-radius: 50%;
-  margin: 0 8px 0 8px;
+  margin: 0 8px 6px 8px;
   cursor: pointer;
+}
+
+#toolbox #colors .color:nth-last-child(-n + 2),
+#toolbox #shapes .shape:nth-last-child(-n + 2) {
+  margin: 0 8px 0px 8px;
 }
 
 #toolbox #shapes .square {
@@ -74,10 +86,16 @@ body {
 
 #toolbox #brush #brush-size {
   width: 90%;
+  margin-bottom: 10px;
+  border-radius: 4px;
 }
 
-#toolbox #actions img {
-  width: 30px;
+#toolbox #brush #brush-size-value {
+  font-size: 10px;
+}
+
+#toolbox #actions .material-icons {
+  font-size: 28px;
 }
 
 #artboard {
