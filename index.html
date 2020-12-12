@@ -33,14 +33,21 @@
       </div>
       <div>
         <div id="actions" class="container">
-          <span class="material-icons">delete_forever</span>
-          <span class="material-icons">save_alt</span>
+          <span id="delete" class="material-icons">delete_forever</span>
+          <a id="download" class="material-icons" download="untitled.png">save_alt</a>
         </div>
       </div>
     </section>
     <section id="artboard">
       <canvas id="paper"></canvas>
     </section>
+    <dialog>
+      <h2>Slet tegning</h2>
+      <div>
+        <button id="cancel" value="cancel">Annuller</button>
+        <button id="confirm" value="delete">Slet</button>
+      </div>
+    </dialog>
     <script src="scripts/main.js"></script>
   </body>
 </html>

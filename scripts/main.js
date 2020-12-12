@@ -45,6 +45,11 @@ const brushSize = document.getElementById("brush-size");
 const brushSizeLabel = document.getElementById("brush-size-value");
 const colorPicker = document.getElementById("color-picker");
 const brushPreview = document.getElementById("brush-preview");
+const dialogReset = document.querySelector("dialog");
+const drawingReset = document.getElementById("delete");
+const cancelReset = document.getElementById("cancel");
+const confirmReset = document.getElementById("confirm");
+const download = document.getElementById("download");
 
 brushPreview.style.backgroundColor = ctx.strokeStyle;
 brushSizeLabel.innerHTML = brushSize.value + "px";
@@ -92,6 +97,26 @@ function updateBrushSize() {
   brushSizeLabel.innerHTML = brushSize.value + "px";
 }
 
+function openDialog() {
+  dialogReset.open = true;
+}
+
+function closeDialog() {
+  dialogReset.open = false;
+}
+
+function resetCanvas() {
+  dialogReset.open = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function downloadDrawing() {
+  const dataURL = canvas.toDataURL("image/png");
+  download.href = dataURL;
+}
+
 colors.forEach(getColors);
 shapes.forEach(getShapes);
 
@@ -114,3 +139,7 @@ document.addEventListener("click", (e) => {
 brushSize.addEventListener("change", updateBrushSize);
 brushSize.addEventListener("mousemove", updateBrushSize);
 colorPicker.addEventListener("change", setColorPicker);
+download.addEventListener("click", downloadDrawing);
+drawingReset.addEventListener("click", openDialog);
+cancelReset.addEventListener("click", closeDialog);
+confirmReset.addEventListener("click", resetCanvas);
